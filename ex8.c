@@ -2,17 +2,13 @@
 #include <math.h>
 
 int main(){
-    float h, a, ab, v, j;
+    float h, a, ab, v;
 
-    scanf("%f %f", &a, &h);
+    scanf("%f %f", &h, &a);
 
-    ab = ((3 * a) * (sqrt(3))) / 2;
+    ab = (3 * (a * a) * sqrt(3)) / 2;
 
-    j = (1 / 3);
-
-    printf("%.2f", j);
-
-    v = ab * h;
+    v = (ab * h) / 3;
 
     printf("O VOLUME DA PIRAMIDE E = %.2f METROS CUBICOS\n", v); 
 
