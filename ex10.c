@@ -1,15 +1,25 @@
 #include <stdio.h>
 
-int main(){
-    float n1, dec;
-    int n2;
+int main() {
+    double n, round;
+    int res;
 
-    scanf("%f", &n1);
+    scanf("%lf", &n);
 
-    n2 = n1;
-    dec = (n1 - n2);
+    res = n*10+0.5;
+    round = res/10.0;
 
-    printf("%.6f\n", dec);
+    printf("%.6lf\n", round);
 
+    res = n*100+0.5;
+    round = res/100.0;
+
+    printf("%.6lf\n", round);
+
+    res = n*1000 +0.5;
+    round = res/1000.0;
+
+    printf("%.6lf\n", round);
+    
     return 0;
 }
