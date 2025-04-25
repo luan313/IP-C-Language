@@ -1,43 +1,36 @@
 #include <stdio.h>
 
 int main(){
-    long int n, j, i, h = 0, b = 0;
-    double sum = 0;
+    int i, n, j, temp;
+    float med; 
+    
+    scanf("%d", &n);
 
-    scanf("%ld", &n);
-
-    int array[n], array2[n];
+    long int array[n];
 
     for(i = 0; i < n; i++){
-        scanf("%d", &array[i]);
+        scanf("%ld", &array[i]);
 
-        if(array[i] > b) b = array[i];
     }
 
-    for(i = 0; i < b; i++){
-        for(j = 0; j < n; j++){
-            if(i == array[j]){
-                array2[h] = array[j];
-                h++;
+    for(i = 0; i < (n - 1); i++){
+        for(j = 0; j < (n - 1); j++){
+            if(array[j] > array[(j + 1)]){
+                temp = array[j];
+                array[j] = array[(j + 1)];
+                array[(j + 1)] = temp;
+                temp = 0;
             }
         }
     }
 
     if((n % 2) == 0){
-        for(i = ((n / 2) - 1); i <= (n / 2); i++){
-            sum += array2[i];
-        }
-
-        sum /= 2;
-
-        printf("%.2lf\n", sum);
-
-        return 0;
+        med = (array[(n / 2)] + array[((n / 2) - 1)]) / 2.00;
     }
 
-    else if((n % 2) != 0){
-        printf("%d\n", array2[(n / 2)]);
+    else med = array[(n / 2)];
 
-        return 0;
-    }
+    printf("%.2f\n", med);
+
+    return 0;
 }
