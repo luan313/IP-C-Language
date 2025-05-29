@@ -1,32 +1,40 @@
 #include <stdio.h>
 
 int main(){
-    int n, i, j, rep, h, count, d = 2000;
+    int T, N, i = 0, j = 0, h = 0, count, range = 0, wrange = 0;
 
-    scanf("%d", &rep);
+    scanf("%d", &T);
 
     int array[1000];
 
-    for(i = 0; i < rep; i++){
-        scanf("%d", &n);
+    for(i = 0; i < T; i++){
+        scanf("%d", &N);
 
-        for(j = 0; j < n; j++){
+        count = N * N;
+
+        for(j = 0; j < N; j++){
             scanf("%d", &array[j]);
         }
 
-        for(j = 0; j < n; j++){
-            for(h = 0; h < (n - 1); h++){
-                if((array[h] - array[(h + 1)]) < d){
-                    d = (array[h] - array[(h + 1)]);
+        if(array[0] > array[1]){
+            wrange = array[0] - array[1];
+        }
+
+        else wrange = array[1] - array[0];
+
+        for(j = 0; j < N; j++){
+            for(h = (j + 1); h < N; h++){
+                if(array[j] > array[h]){
+                    range = array[j] - array[0];
                 }
 
-                count++;
+                else range = array[h] - array[j];
+
+                if(range < wrange) wrange = range;
             }
         }
 
-        printf("%d %d\n", count, d);
-
-        count = 0, d = 2000;
+        printf("%d %d\n", wrange, count);
     }
 
     return 0;
